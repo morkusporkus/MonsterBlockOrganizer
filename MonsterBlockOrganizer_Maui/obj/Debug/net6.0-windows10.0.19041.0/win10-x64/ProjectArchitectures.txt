@@ -1,0 +1,1 @@
+C:\Users\PC\source\repos\MonsterBlockOrganizer_Maui\MonsterBlockOrganizer_Maui\MonsterBlockOrganizer_Maui.csproj;x64

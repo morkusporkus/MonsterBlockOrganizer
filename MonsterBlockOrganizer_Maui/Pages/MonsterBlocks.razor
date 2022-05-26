@@ -1,0 +1,48 @@
+﻿@page "/monsterBlocks"
+@using MonsterBlockOrganizer_Maui.Data
+@using MudBlazor
+@using System.Linq
+<h1>Monster Blocks</h1>
+<MudGrid>
+    <MudItem xs="2">
+		<MudTable Items="@monsterBlocks"  Breakpoint="Breakpoint.Sm" >
+			<HeaderContent>
+				<MudTh>Monster</MudTh>
+			</HeaderContent>
+			<RowTemplate>
+				<MudTd >
+				<MudButton @onclick="(() => GetDetail(context.name))"
+           Variant="Variant.Filled"
+           Color="Color.Primary">
+                        @context.name
+                </MudButton>
+				</MudTd>
+			</RowTemplate>
+		</MudTable>
+    </MudItem>
+
+     <MudItem xs="10">
+      @*   Creature Heading*@
+         <MudText Typo="Typo.h2">@selectedBlock.name</MudText>
+         <MudText Typo="Typo.caption">@selectedBlock.size @selectedBlock.alignment</MudText>
+        @* HP/AC/Speed*@
+        <MudText Typo="Typo.body1">AC:@selectedBlock.otherArmorDesc </MudText>
+        <MudText Typo="Typo.body1">HP:@selectedBlock.hpText </MudText>
+        <MudText Typo="Typo.body1">Speed:@selectedBlock.speed </MudText>
+          <MudGrid>     
+               <MudItem xs="1">STR:@selectedBlock.strPoints </MudItem>
+               <MudItem xs="1">DEX:@selectedBlock.dexPoints </MudItem>
+               <MudItem xs="1">CON:@selectedBlock.conPoints </MudItem>
+               <MudItem xs="1">INT:@selectedBlock.intPoints </MudItem>
+               <MudItem xs="1">WIS:@selectedBlock.wisPoints </MudItem>
+               <MudItem xs="1">CHA:@selectedBlock.chaPoints </MudItem>
+          </MudGrid>
+           @* Saving Throws*@   
+           <MudText Typo="Typo.body1">Saving Throws:@selectedBlock.sthrows </MudText>
+           <MudText Typo="Typo.body1">Skills:@selectedBlock.skills </MudText>
+           <MudText Typo="Typo.body1">Senses:@selectedBlock.blindsight </MudText>
+             <MudText Typo="Typo.body1">Languages:@selectedBlock.languages </MudText>
+             <MudText Typo="Typo.body1">Challenge:@selectedBlock.cr </MudText>
+         
+    </MudItem>
+        </MudGrid>
